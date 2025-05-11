@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/zin-min-thu/go-price-calculator/cmdmanager"
 	"github.com/zin-min-thu/go-price-calculator/prices"
 )
@@ -16,7 +18,12 @@ func main() {
 		cmdm := cmdmanager.New()
 
 		priceJob := prices.NewTaxIncludedPriceJob(cmdm, taxRate)
-		priceJob.Process()
+		err := priceJob.Process()
+
+		if err != nil {
+			fmt.Println("could not pricess job")
+			fmt.Println(err)
+		}
 	}
 
 	// fmt.Println(result)
