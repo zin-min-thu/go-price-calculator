@@ -45,6 +45,8 @@ func (fm FileManager) WriteResult(data interface{}) error {
 		return errors.New("failed to create")
 	}
 
+	// time.Sleep(3 * time.Second)
+
 	encoder := json.NewEncoder(file)
 	err = encoder.Encode(data)
 
